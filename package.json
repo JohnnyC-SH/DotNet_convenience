@@ -1,0 +1,102 @@
+{
+  "name": "dotnet-convenience",
+  "displayName": ".NET Convenience",
+  "description": "Atajos para .NET en VS Code: archivos por convención, controllers, referencias entre proyectos y proyectos nuevos en la solución (complementa C# Dev Kit).",
+  "version": "0.2.5",
+  "publisher": "t1gr3ju4nmx",
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "sponsor": {
+    "url": "https://paypal.me/SIPTec"
+  },
+  "author": {
+    "name": "t1gr3ju4nmx",
+    "url": "https://github.com/t1gr3ju4nmx"
+  },
+  "homepage": "https://github.com/t1gr3ju4nmx/DotNet_convenience#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t1gr3ju4nmx/DotNet_convenience.git"
+  },
+  "bugs": {
+    "url": "https://github.com/t1gr3ju4nmx/DotNet_convenience/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["dotnet", "csharp", "blazor", "aspnet", "maui", "controller"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dotnetConv.addClass",
+        "title": ".NET: Agregar clase C#"
+      },
+      {
+        "command": "dotnetConv.addRazorComponent",
+        "title": ".NET: Agregar componente Razor (.razor)"
+      },
+      {
+        "command": "dotnetConv.addRazorPage",
+        "title": ".NET: Agregar página Razor con @page"
+      },
+      {
+        "command": "dotnetConv.addInterface",
+        "title": ".NET: Agregar interfaz C#"
+      },
+      {
+        "command": "dotnetConv.addController",
+        "title": ".NET: Agregar controller (API o MVC)"
+      },
+      {
+        "command": "dotnetConv.addProjectReference",
+        "title": ".NET: Agregar referencia a otro proyecto"
+      },
+      {
+        "command": "dotnetConv.newProjectInSolution",
+        "title": ".NET: Nuevo proyecto en la solución (dotnet new + sln)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "dotnetConv.addClass",
+          "group": "dotnetConv@1",
+          "when": "resourceScheme == file && (explorerResourceIsFolder || resourceExtname == .cs || resourceExtname == .razor)"
+        },
+        {
+          "command": "dotnetConv.addRazorComponent",
+          "group": "dotnetConv@2",
+          "when": "resourceScheme == file && (explorerResourceIsFolder || resourceExtname == .cs || resourceExtname == .razor)"
+        },
+        {
+          "command": "dotnetConv.addRazorPage",
+          "group": "dotnetConv@3",
+          "when": "resourceScheme == file && (explorerResourceIsFolder || resourceExtname == .cs || resourceExtname == .razor)"
+        },
+        {
+          "command": "dotnetConv.addInterface",
+          "group": "dotnetConv@4",
+          "when": "resourceScheme == file && (explorerResourceIsFolder || resourceExtname == .cs || resourceExtname == .razor)"
+        },
+        {
+          "command": "dotnetConv.addController",
+          "group": "dotnetConv@5",
+          "when": "resourceScheme == file && (explorerResourceIsFolder || resourceExtname == .cs || resourceExtname == .razor)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}
