@@ -36,11 +36,13 @@ export async function runDotnetWithOutput(
     if (stderr) {
       channel.appendLine(stderr.trimEnd());
     }
-    vscode.window.setStatusBarMessage(`${title}: listo`, 5000);
+    vscode.window.setStatusBarMessage(vscode.l10n.t("{0}: done", title), 5000);
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     channel.appendLine(msg);
-    vscode.window.showErrorMessage(`${title} falló. Revisa el canal de salida ".NET Convenience".`);
+    vscode.window.showErrorMessage(
+      vscode.l10n.t('{0} failed. Check the ".NET Convenience" output channel.', title),
+    );
     throw e;
   }
 }

@@ -9,7 +9,9 @@ export function registerAddProjectReference(context: vscode.ExtensionContext): v
       const projects = await findAllCsproj();
       if (projects.length < 2) {
         vscode.window.showErrorMessage(
-          "Hacen falta al menos dos proyectos (.csproj) en el workspace para agregar una referencia.",
+          vscode.l10n.t(
+            "At least two projects (.csproj) are required in the workspace to add a reference.",
+          ),
         );
         return;
       }
@@ -28,8 +30,10 @@ export function registerAddProjectReference(context: vscode.ExtensionContext): v
           uri: p,
         })),
         {
-          title: "Proyecto que recibirá la referencia",
-          placeHolder: suggested ? `Sugerido arriba: ${vscode.workspace.asRelativePath(suggested)}` : "Elige un .csproj",
+          title: vscode.l10n.t("Project that will receive the reference"),
+          placeHolder: suggested
+            ? vscode.l10n.t("Suggested above: {0}", vscode.workspace.asRelativePath(suggested))
+            : vscode.l10n.t("Choose a .csproj"),
         },
       );
       if (!fromPick) {
@@ -43,7 +47,10 @@ export function registerAddProjectReference(context: vscode.ExtensionContext): v
           description: path.basename(p.fsPath),
           uri: p,
         })),
-        { title: "Proyecto referenciado", placeHolder: "Elige el otro .csproj" },
+        {
+          title: vscode.l10n.t("Referenced project"),
+          placeHolder: vscode.l10n.t("Pick the other .csproj"),
+        },
       );
       if (!toPick) {
         return;

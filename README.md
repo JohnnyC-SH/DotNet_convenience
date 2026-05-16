@@ -1,5 +1,95 @@
 # .NET Convenience
 
+Extension for **Visual Studio Code** and **Cursor** that adds shortcuts for common **.NET** workflows (complements C# Dev Kit and the SDK).
+
+Repository: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
+
+**Donate (PayPal — SIPTec):** [https://paypal.me/SIPTec](https://paypal.me/SIPTec)
+
+UI strings follow your editor language: **English** by default, **Spanish** when the display language is `es` (see `package.nls.*` and `l10n/bundle.l10n.*`).
+
+---
+
+## English
+
+### Screenshots
+
+Paths are **relative to the package** so they load on the extension page when installing from a VSIX.
+
+![Command Palette with .NET prefix](docs/screenshots/paleta-comandos.png)
+
+![Explorer context menu](docs/screenshots/menu-explorador.png)
+
+### Requirements
+
+- [.NET SDK](https://dotnet.microsoft.com/download) installed and on your `PATH`.
+- Node.js only if you **compile** or **package** the extension from source.
+
+### Commands (palette: `Cmd+Shift+P` / `Ctrl+Shift+P`)
+
+Search for the **`.NET:`** prefix.
+
+| Command | Short description |
+|--------|-------------------|
+| Add C# class | Creates a `.cs` with inferred namespace. |
+| Add C# interface | Creates an interface in the project namespace. |
+| Add Razor component | Creates a `.razor` with `@namespace`. |
+| Add Razor page with `@page` | Creates a page with a configurable route. |
+| Add controller (API or MVC) | Web API (`ControllerBase`) or MVC (`Controller`). |
+| Add project reference | Runs `dotnet add … reference …`. |
+| New project in solution | `dotnet new` and `dotnet sln add`. |
+
+There are also entries in the file explorer **context menu** (folders and `.cs` / `.razor` files).
+
+### Development
+
+```bash
+git clone https://github.com/t1gr3ju4nmx/DotNet_convenience.git
+cd DotNet_convenience
+npm install
+npm run compile
+```
+
+Package as `.vsix`:
+
+```bash
+npx @vscode/vsce package
+```
+
+Install in Cursor/VS Code:
+
+```bash
+cursor --install-extension dotnet-convenience-0.2.5.vsix
+# or: code --install-extension …
+```
+
+If you previously installed a build with publisher **`local`**, uninstall the duplicate (different extension id):
+
+```bash
+cursor --uninstall-extension local.dotnet-convenience
+```
+
+*(Adjust the `.vsix` filename to the current `package.json` version.)*
+
+### Contributing
+
+- **Issues:** [bugs and ideas](https://github.com/t1gr3ju4nmx/DotNet_convenience/issues).
+- **Pull requests:** fork the repo, branch your change, and open a PR against `main` (or the repo default branch).
+
+### Donations
+
+Same link as above: [paypal.me/SIPTec](https://paypal.me/SIPTec)
+
+*(The `paypal.com/.../my/profile` URL is just your profile when you log into PayPal; for sharing payments use **PayPal.me**.)*
+
+### License
+
+MIT — see `LICENSE` in this folder.
+
+---
+
+## Español
+
 Extensión para **Visual Studio Code** y **Cursor** que añade atajos para flujos habituales de **.NET** (complementa C# Dev Kit y el SDK).
 
 Repositorio: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
@@ -8,7 +98,9 @@ Repositorio: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr
 
 *(En instalaciones por `.vsix`, Cursor/VS Code a veces **no muestra** el botón “Sponsor” del `package.json`; el enlace de arriba es el que siempre funciona.)*
 
-## Capturas
+Los textos de la interfaz respetan el idioma del editor: **inglés** por defecto y **español** con idioma de visualización `es`.
+
+### Capturas
 
 Las rutas son **relativas al paquete** para que carguen en la ficha de la extensión al instalar desde VSIX.
 
@@ -16,12 +108,12 @@ Las rutas son **relativas al paquete** para que carguen en la ficha de la extens
 
 ![Menú contextual en el explorador](docs/screenshots/menu-explorador.png)
 
-## Requisitos
+### Requisitos
 
 - [.NET SDK](https://dotnet.microsoft.com/download) instalado y en el `PATH`.
 - Node.js solo si vas a **compilar** o **empaquetar** la extensión desde el código fuente.
 
-## Comandos (paleta: `Cmd+Shift+P` / `Ctrl+Shift+P`)
+### Comandos (paleta: `Cmd+Shift+P` / `Ctrl+Shift+P`)
 
 Busca el prefijo **`.NET:`**.
 
@@ -37,7 +129,7 @@ Busca el prefijo **`.NET:`**.
 
 También hay entradas en el **menú contextual** del explorador de archivos (carpetas y archivos `.cs` / `.razor`).
 
-## Desarrollo
+### Desarrollo
 
 ```bash
 git clone https://github.com/t1gr3ju4nmx/DotNet_convenience.git
@@ -67,21 +159,17 @@ cursor --uninstall-extension local.dotnet-convenience
 
 *(Ajusta el nombre del archivo `.vsix` a la versión actual del `package.json`.)*
 
-## Colaboración
+### Colaboración
 
 - **Issues:** [problemas y ideas](https://github.com/t1gr3ju4nmx/DotNet_convenience/issues).
 - **Pull requests:** bifurca el repo, crea una rama con tu cambio y abre un PR contra `main` (o la rama por defecto del repo).
 
-## Donaciones
+### Donaciones
 
 Mismo enlace que arriba: [paypal.me/SIPTec](https://paypal.me/SIPTec)
 
 *(La página `paypal.com/.../my/profile` es solo tu perfil al entrar en PayPal; para compartir cobros usa **PayPal.me**.)*
 
-## Licencia
+### Licencia
 
 MIT — ver `LICENSE` en esta carpeta.
-
----
-
-*Puedes ampliar este README con capturas, enlace al Marketplace y guías de uso.*

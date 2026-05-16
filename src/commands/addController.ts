@@ -9,7 +9,7 @@ function toPascalBase(raw: string): string {
   const trimmed = raw.trim().replace(/\.cs$/i, "").replace(/Controller$/i, "");
   const safe = trimmed.replace(/[^a-zA-Z0-9_]/g, "");
   if (!safe) {
-    throw new Error("Nombre inválido.");
+    throw new Error(vscode.l10n.t("Invalid name."));
   }
   return safe.charAt(0).toUpperCase() + safe.slice(1);
 }
@@ -50,33 +50,41 @@ export function registerAddController(context: vscode.ExtensionContext): void {
         }>(
           [
             {
-              label: "Web API",
-              description: "ControllerBase · [ApiController] · api/[controller]",
+              label: vscode.l10n.t("Web API"),
+              description: vscode.l10n.t(
+                "ControllerBase · [ApiController] · route template api/[controller]",
+              ),
               style: "api",
             },
             {
-              label: "MVC",
-              description: "Controller · acción Index de ejemplo",
+              label: vscode.l10n.t("MVC"),
+              description: vscode.l10n.t("Controller · sample Index action"),
               style: "mvc",
             },
           ],
-          { title: "Tipo de controller", placeHolder: "Elige estilo" },
+          {
+            title: vscode.l10n.t("Controller kind"),
+            placeHolder: vscode.l10n.t("Choose a style"),
+          },
         );
         if (!stylePick) {
           return;
         }
 
         const nameInput = await vscode.window.showInputBox({
-          title: "Nuevo controller",
-          prompt:
-            "Nombre base sin sufijo Controller (ej: Productos crea ProductosController.cs). Si escribes ProductosController, se normaliza.",
+          title: vscode.l10n.t("New controller"),
+          prompt: vscode.l10n.t(
+            "Base name without the Controller suffix (e.g. Products creates ProductsController.cs). If you type ProductsController, it will be normalized.",
+          ),
           validateInput: (v) => {
             const t = v.trim().replace(/Controller$/i, "");
             if (!t) {
-              return "Escribe un nombre.";
+              return vscode.l10n.t("Enter a name.");
             }
             if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(t)) {
-              return "Identificador C# típico: letra o _, luego letras, números o _.";
+              return vscode.l10n.t(
+                "Use a typical C# identifier: a letter or underscore, then letters, digits, or underscores.",
+              );
             }
             return undefined;
           },
@@ -93,7 +101,9 @@ export function registerAddController(context: vscode.ExtensionContext): void {
         const csproj = await findNearestCsproj(targetDir.fsPath);
         if (!csproj) {
           vscode.window.showErrorMessage(
-            "No encontré un .csproj cercano. Coloca el archivo dentro del árbol del proyecto o abre un archivo del proyecto.",
+            vscode.l10n.t(
+              "Could not find a nearby .csproj. Place the file under the project tree or open a project file.",
+            ),
           );
           return;
         }
@@ -104,7 +114,7 @@ export function registerAddController(context: vscode.ExtensionContext): void {
 
         try {
           await vscode.workspace.fs.stat(uri);
-          vscode.window.showErrorMessage(`Ya existe: ${fileName}`);
+          vscode.window.showErrorMessage(vscode.l10n.t("Already exists: {0}", fileName));
           return;
         } catch {
           // ok
@@ -114,7 +124,7 @@ export function registerAddController(context: vscode.ExtensionContext): void {
         await writeUtf8File(uri, content);
         const doc = await vscode.workspace.openTextDocument(uri);
         await vscode.window.showTextDocument(doc, { preview: false });
-        vscode.window.setStatusBarMessage(`.NET Convenience: creado ${fileName}`, 4000);
+        vscode.window.setStatusBarMessage(vscode.l10n.t(".NET Convenience: created {0}", fileName), 4000);
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
         vscode.window.showErrorMessage(msg);

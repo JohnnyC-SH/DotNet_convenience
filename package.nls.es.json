@@ -1,0 +1,10 @@
+{
+  "extension.description": "Atajos para .NET en VS Code: archivos por convención, controllers, referencias entre proyectos y proyectos nuevos en la solución (complementa C# Dev Kit).",
+  "command.addClass": ".NET: Agregar clase C#",
+  "command.addRazorComponent": ".NET: Agregar componente Razor (.razor)",
+  "command.addRazorPage": ".NET: Agregar página Razor con @page",
+  "command.addInterface": ".NET: Agregar interfaz C#",
+  "command.addController": ".NET: Agregar controller (API o MVC)",
+  "command.addProjectReference": ".NET: Agregar referencia a otro proyecto",
+  "command.newProjectInSolution": ".NET: Nuevo proyecto en la solución (dotnet new + sln)"
+}

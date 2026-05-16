@@ -1,0 +1,10 @@
+{
+  "extension.description": "VS Code shortcuts for .NET: conventional files, controllers, cross-project references, and new projects in the solution (complements C# Dev Kit).",
+  "command.addClass": ".NET: Add C# class",
+  "command.addRazorComponent": ".NET: Add Razor component (.razor)",
+  "command.addRazorPage": ".NET: Add Razor page with @page",
+  "command.addInterface": ".NET: Add C# interface",
+  "command.addController": ".NET: Add controller (API or MVC)",
+  "command.addProjectReference": ".NET: Add project reference",
+  "command.newProjectInSolution": ".NET: New project in solution (dotnet new + sln)"
+}

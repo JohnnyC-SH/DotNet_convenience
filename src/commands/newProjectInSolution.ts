@@ -10,27 +10,59 @@ type TemplateChoice = {
   extraArgs: string[];
 };
 
-const templates: TemplateChoice[] = [
-  { label: "classlib", description: "Biblioteca de clases", template: "classlib", extraArgs: [] },
-  { label: "console", description: "Aplicación de consola", template: "console", extraArgs: [] },
-  { label: "web", description: "ASP.NET Core vacío", template: "web", extraArgs: [] },
-  { label: "webapi", description: "ASP.NET Core Web API", template: "webapi", extraArgs: [] },
-  { label: "blazor", description: "Blazor Web App", template: "blazor", extraArgs: [] },
-  { label: "maui", description: ".NET MAUI App", template: "maui", extraArgs: [] },
-  {
-    label: "Personalizado…",
-    description: "Nombre corto de plantilla (dotnet new list)",
-    template: "__custom__",
-    extraArgs: [],
-  },
-];
+function getTemplates(): TemplateChoice[] {
+  return [
+    {
+      label: "classlib",
+      description: vscode.l10n.t("Class library"),
+      template: "classlib",
+      extraArgs: [],
+    },
+    {
+      label: "console",
+      description: vscode.l10n.t("Console application"),
+      template: "console",
+      extraArgs: [],
+    },
+    {
+      label: "web",
+      description: vscode.l10n.t("ASP.NET Core empty"),
+      template: "web",
+      extraArgs: [],
+    },
+    {
+      label: "webapi",
+      description: vscode.l10n.t("ASP.NET Core Web API"),
+      template: "webapi",
+      extraArgs: [],
+    },
+    {
+      label: "blazor",
+      description: vscode.l10n.t("Blazor Web App"),
+      template: "blazor",
+      extraArgs: [],
+    },
+    {
+      label: "maui",
+      description: vscode.l10n.t(".NET MAUI App"),
+      template: "maui",
+      extraArgs: [],
+    },
+    {
+      label: vscode.l10n.t("Custom…"),
+      description: vscode.l10n.t("Short template name (dotnet new list)"),
+      template: "__custom__",
+      extraArgs: [],
+    },
+  ];
+}
 
 export function registerNewProjectInSolution(context: vscode.ExtensionContext): void {
   const disposable = vscode.commands.registerCommand("dotnetConv.newProjectInSolution", async () => {
     try {
       const slns = await findSolutionFiles();
       if (!slns.length) {
-        vscode.window.showErrorMessage("No encontré ningún .sln en el workspace.");
+        vscode.window.showErrorMessage(vscode.l10n.t("No solution (.sln) was found in the workspace."));
         return;
       }
 
@@ -42,7 +74,10 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
                 label: vscode.workspace.asRelativePath(s),
                 uri: s,
               })),
-              { title: "Solución", placeHolder: "Elige el .sln" },
+              {
+                title: vscode.l10n.t("Solution"),
+                placeHolder: vscode.l10n.t("Choose the .sln"),
+              },
             );
       if (!slnPick) {
         return;
@@ -51,9 +86,9 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
       const slnPath = slnPick.uri.fsPath;
       const slnDir = path.dirname(slnPath);
 
-      const tpl = await vscode.window.showQuickPick(templates, {
-        title: "Plantilla dotnet new",
-        placeHolder: "Elige tipo de proyecto",
+      const tpl = await vscode.window.showQuickPick(getTemplates(), {
+        title: vscode.l10n.t("dotnet new template"),
+        placeHolder: vscode.l10n.t("Choose a project type"),
       });
       if (!tpl) {
         return;
@@ -63,9 +98,9 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
       let extra = [...tpl.extraArgs];
       if (templateId === "__custom__") {
         const custom = await vscode.window.showInputBox({
-          title: "Plantilla",
-          prompt: "Nombre corto (ej: razorclasslib, worker, xunit)",
-          validateInput: (v) => (v.trim() ? undefined : "Requerido"),
+          title: vscode.l10n.t("Template"),
+          prompt: vscode.l10n.t("Short name (e.g. razorclasslib, worker, xunit)"),
+          validateInput: (v) => (v.trim() ? undefined : vscode.l10n.t("Required")),
         });
         if (!custom?.trim()) {
           return;
@@ -74,15 +109,15 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
       }
 
       const name = await vscode.window.showInputBox({
-        title: "Nombre del proyecto",
-        prompt: "Se usará con dotnet new -n",
+        title: vscode.l10n.t("Project name"),
+        prompt: vscode.l10n.t("Used with dotnet new -n"),
         validateInput: (v) => {
           const t = v.trim();
           if (!t) {
-            return "Requerido";
+            return vscode.l10n.t("Required");
           }
           if (!/^[\w.-]+$/u.test(t)) {
-            return "Usa letras, números, guion, punto o guion bajo.";
+            return vscode.l10n.t("Use letters, digits, hyphens, dots, or underscores.");
           }
           return undefined;
         },
@@ -92,8 +127,8 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
       }
 
       const subfolder = await vscode.window.showInputBox({
-        title: "Subcarpeta (opcional)",
-        prompt: "Ruta relativa al directorio del .sln, por ejemplo: src o apps/web",
+        title: vscode.l10n.t("Subfolder (optional)"),
+        prompt: vscode.l10n.t("Relative path to the .sln directory, for example: src or apps/web"),
         value: "",
       });
       if (subfolder === undefined) {
@@ -115,7 +150,9 @@ export function registerNewProjectInSolution(context: vscode.ExtensionContext): 
         const found = await vscode.workspace.findFiles(pattern, null, 5);
         if (!found.length) {
           vscode.window.showWarningMessage(
-            "dotnet new terminó, pero no encontré el .csproj esperado. Agrega el proyecto a la solución manualmente si hace falta.",
+            vscode.l10n.t(
+              "dotnet new finished, but the expected .csproj was not found. Add the project to the solution manually if needed.",
+            ),
           );
           return;
         }

@@ -1,7 +1,7 @@
 {
   "name": "dotnet-convenience",
   "displayName": ".NET Convenience",
-  "description": "Atajos para .NET en VS Code: archivos por convención, controllers, referencias entre proyectos y proyectos nuevos en la solución (complementa C# Dev Kit).",
+  "description": "%extension.description%",
   "version": "0.2.5",
   "publisher": "t1gr3ju4nmx",
   "icon": "images/icon.png",
@@ -27,36 +27,37 @@
   "categories": ["Other"],
   "keywords": ["dotnet", "csharp", "blazor", "aspnet", "maui", "controller"],
   "activationEvents": ["onStartupFinished"],
+  "l10n": "./l10n",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "dotnetConv.addClass",
-        "title": ".NET: Agregar clase C#"
+        "title": "%command.addClass%"
       },
       {
         "command": "dotnetConv.addRazorComponent",
-        "title": ".NET: Agregar componente Razor (.razor)"
+        "title": "%command.addRazorComponent%"
       },
       {
         "command": "dotnetConv.addRazorPage",
-        "title": ".NET: Agregar página Razor con @page"
+        "title": "%command.addRazorPage%"
       },
       {
         "command": "dotnetConv.addInterface",
-        "title": ".NET: Agregar interfaz C#"
+        "title": "%command.addInterface%"
       },
       {
         "command": "dotnetConv.addController",
-        "title": ".NET: Agregar controller (API o MVC)"
+        "title": "%command.addController%"
       },
       {
         "command": "dotnetConv.addProjectReference",
-        "title": ".NET: Agregar referencia a otro proyecto"
+        "title": "%command.addProjectReference%"
       },
       {
         "command": "dotnetConv.newProjectInSolution",
-        "title": ".NET: Nuevo proyecto en la solución (dotnet new + sln)"
+        "title": "%command.newProjectInSolution%"
       }
     ],
     "menus": {

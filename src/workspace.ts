@@ -19,17 +19,17 @@ export async function resolveTargetDirectory(resource?: vscode.Uri): Promise<vsc
 
   const folders = vscode.workspace.workspaceFolders;
   if (!folders?.length) {
-    throw new Error("Abre una carpeta en VS Code.");
+    throw new Error(vscode.l10n.t("Open a folder in VS Code."));
   }
   if (folders.length === 1) {
     return folders[0].uri;
   }
 
   const picked = await vscode.window.showWorkspaceFolderPick({
-    placeHolder: "Elige la carpeta del workspace donde crear el archivo",
+    placeHolder: vscode.l10n.t("Choose the workspace folder where the file will be created"),
   });
   if (!picked) {
-    throw new Error("Operación cancelada.");
+    throw new Error(vscode.l10n.t("Operation cancelled."));
   }
   return picked.uri;
 }

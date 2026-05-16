@@ -9,7 +9,7 @@ function toPascalFileBase(raw: string): string {
   const trimmed = raw.trim().replace(/\.(cs|razor)$/i, "");
   const safe = trimmed.replace(/[^a-zA-Z0-9_]/g, "");
   if (!safe) {
-    throw new Error("Nombre inválido.");
+    throw new Error(vscode.l10n.t("Invalid name."));
   }
   return safe.charAt(0).toUpperCase() + safe.slice(1);
 }
@@ -37,27 +37,29 @@ function extensionFor(kind: ArtifactKind): string {
 async function promptName(kind: ArtifactKind): Promise<string | undefined> {
   const placeHolder =
     kind === "interface"
-      ? "IMiServicio o MiServicio"
+      ? vscode.l10n.t("IMyService or MyService")
       : kind === "razorPage"
-        ? "Nombre del componente (ruta opcional en el siguiente paso)"
-        : "Nombre (sin extensión)";
+        ? vscode.l10n.t("Component name (optional route in the next step)")
+        : vscode.l10n.t("Name (without extension)");
   return vscode.window.showInputBox({
     title:
       kind === "class"
-        ? "Nueva clase C#"
+        ? vscode.l10n.t("New C# class")
         : kind === "interface"
-          ? "Nueva interfaz C#"
+          ? vscode.l10n.t("New C# interface")
           : kind === "razorComponent"
-            ? "Nuevo componente Razor"
-            : "Nueva página Razor",
+            ? vscode.l10n.t("New Razor component")
+            : vscode.l10n.t("New Razor page"),
     prompt: placeHolder,
     validateInput: (v) => {
       const t = v.trim();
       if (!t) {
-        return "Escribe un nombre.";
+        return vscode.l10n.t("Enter a name.");
       }
       if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(t)) {
-        return "Identificador C# típico: letra o _, luego letras, números o _.";
+        return vscode.l10n.t(
+          "Use a typical C# identifier: a letter or underscore, then letters, digits, or underscores.",
+        );
       }
       return undefined;
     },
@@ -66,8 +68,8 @@ async function promptName(kind: ArtifactKind): Promise<string | undefined> {
 
 async function promptRoute(defaultRoute: string): Promise<string | undefined> {
   return vscode.window.showInputBox({
-    title: "Ruta @page",
-    prompt: "Ejemplo: /clientes o clientes",
+    title: vscode.l10n.t("@page route"),
+    prompt: vscode.l10n.t("Example: /customers or customers"),
     value: defaultRoute,
   });
 }
@@ -99,7 +101,9 @@ export function registerArtifactCommands(context: vscode.ExtensionContext): void
           const csproj = await findNearestCsproj(targetDir.fsPath);
           if (!csproj) {
             vscode.window.showErrorMessage(
-              "No encontré un .csproj cercano. Coloca el archivo dentro del árbol del proyecto o abre un archivo del proyecto.",
+              vscode.l10n.t(
+                "Could not find a nearby .csproj. Place the file under the project tree or open a project file.",
+              ),
             );
             return;
           }
@@ -110,7 +114,7 @@ export function registerArtifactCommands(context: vscode.ExtensionContext): void
 
           try {
             await vscode.workspace.fs.stat(uri);
-            vscode.window.showErrorMessage(`Ya existe: ${fileName}`);
+            vscode.window.showErrorMessage(vscode.l10n.t("Already exists: {0}", fileName));
             return;
           } catch {
             // ok
@@ -120,7 +124,7 @@ export function registerArtifactCommands(context: vscode.ExtensionContext): void
           await writeUtf8File(uri, content);
           const doc = await vscode.workspace.openTextDocument(uri);
           await vscode.window.showTextDocument(doc, { preview: false });
-          vscode.window.setStatusBarMessage(`.NET Convenience: creado ${fileName}`, 4000);
+          vscode.window.setStatusBarMessage(vscode.l10n.t(".NET Convenience: created {0}", fileName), 4000);
         } catch (e) {
           const msg = e instanceof Error ? e.message : String(e);
           vscode.window.showErrorMessage(msg);
