@@ -2,12 +2,12 @@
   "name": "dotnet-convenience",
   "displayName": ".NET Convenience",
   "description": "%extension.description%",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "publisher": "t1gr3ju4nmx",
   "icon": "images/icon.png",
   "license": "MIT",
   "sponsor": {
-    "url": "https://paypal.me/SIPTec"
+    "url": "https://paypal.me/SIPTecMX"
   },
   "author": {
     "name": "t1gr3ju4nmx",

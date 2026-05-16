@@ -4,7 +4,7 @@ Extension for **Visual Studio Code** and **Cursor** that adds shortcuts for comm
 
 Repository: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
 
-**Donate (PayPal — SIPTec):** [https://paypal.me/SIPTec](https://paypal.me/SIPTec)
+**Donate (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
 UI strings follow your editor language: **English** by default, **Spanish** when the display language is `es` (see `package.nls.*` and `l10n/bundle.l10n.*`).
 
@@ -59,7 +59,7 @@ npx @vscode/vsce package
 Install in Cursor/VS Code:
 
 ```bash
-cursor --install-extension dotnet-convenience-0.2.5.vsix
+cursor --install-extension dotnet-convenience-0.2.6.vsix
 # or: code --install-extension …
 ```
 
@@ -78,9 +78,7 @@ cursor --uninstall-extension local.dotnet-convenience
 
 ### Donations
 
-Same link as above: [paypal.me/SIPTec](https://paypal.me/SIPTec)
-
-*(The `paypal.com/.../my/profile` URL is just your profile when you log into PayPal; for sharing payments use **PayPal.me**.)*
+Same link as above: [paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
 ### License
 
@@ -94,7 +92,7 @@ Extensión para **Visual Studio Code** y **Cursor** que añade atajos para flujo
 
 Repositorio: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
 
-**Donar (PayPal — SIPTec):** [https://paypal.me/SIPTec](https://paypal.me/SIPTec)
+**Donar (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
 *(En instalaciones por `.vsix`, Cursor/VS Code a veces **no muestra** el botón “Sponsor” del `package.json`; el enlace de arriba es el que siempre funciona.)*
 
@@ -147,7 +145,7 @@ npx @vscode/vsce package
 Instalar en Cursor/VS Code:
 
 ```bash
-cursor --install-extension dotnet-convenience-0.2.5.vsix
+cursor --install-extension dotnet-convenience-0.2.6.vsix
 # o: code --install-extension …
 ```
 
@@ -166,9 +164,7 @@ cursor --uninstall-extension local.dotnet-convenience
 
 ### Donaciones
 
-Mismo enlace que arriba: [paypal.me/SIPTec](https://paypal.me/SIPTec)
-
-*(La página `paypal.com/.../my/profile` es solo tu perfil al entrar en PayPal; para compartir cobros usa **PayPal.me**.)*
+Mismo enlace que arriba: [paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
 ### Licencia
 
