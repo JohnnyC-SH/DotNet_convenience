@@ -16,24 +16,26 @@ function toPascalBase(raw: string): string {
 
 function buildController(ns: string, className: string, style: ControllerStyle): string {
   if (style === "api") {
-    return `namespace ${ns};
+    return `using Microsoft.AspNetCore.Mvc;
 
-using Microsoft.AspNetCore.Mvc;
-
-[ApiController]
-[Route("api/[controller]")]
-public sealed class ${className} : ControllerBase
-{
+namespace ${ns}
+{\t
+\t[ApiController]
+\t[Route("api/[controller]")]
+\tpublic sealed class ${className} : ControllerBase
+\t{
+\t}
 }
 `;
   }
-  return `namespace ${ns};
+  return `using Microsoft.AspNetCore.Mvc;
 
-using Microsoft.AspNetCore.Mvc;
-
-public sealed class ${className} : Controller
-{
-    public IActionResult Index() => View();
+namespace ${ns}
+{\t
+\tpublic sealed class ${className} : Controller
+\t{
+\t\tpublic IActionResult Index() => View();
+\t}
 }
 `;
 }

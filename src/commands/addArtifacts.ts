@@ -17,9 +17,9 @@ function toPascalFileBase(raw: string): string {
 function buildContent(kind: ArtifactKind, ns: string, name: string, pageRoute?: string): string {
   switch (kind) {
     case "class":
-      return `namespace ${ns};\n\npublic sealed class ${name}\n{\n}\n`;
+      return `namespace ${ns}\n{\n\tpublic sealed class ${name}\n\t{\n\t\n\t}\n}\n`;
     case "interface":
-      return `namespace ${ns};\n\npublic interface ${name}\n{\n}\n`;
+      return `namespace ${ns}\n{\n\tpublic interface ${name}\n\t{\n\t\n\t}\n}\n`;
     case "razorComponent":
       return `@namespace ${ns}\n\n<h3>${name}</h3>\n\n@code {\n}\n`;
     case "razorPage": {

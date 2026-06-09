@@ -59,7 +59,7 @@ npx @vscode/vsce package
 Install in Cursor/VS Code:
 
 ```bash
-cursor --install-extension dotnet-convenience-0.2.6.vsix
+cursor --install-extension dotnet-convenience-0.2.7.vsix
 # or: code --install-extension …
 ```
 
@@ -145,7 +145,7 @@ npx @vscode/vsce package
 Instalar en Cursor/VS Code:
 
 ```bash
-cursor --install-extension dotnet-convenience-0.2.6.vsix
+cursor --install-extension dotnet-convenience-0.2.7.vsix
 # o: code --install-extension …
 ```
 

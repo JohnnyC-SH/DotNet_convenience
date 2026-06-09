@@ -2,7 +2,7 @@
   "name": "dotnet-convenience",
   "displayName": ".NET Convenience",
   "description": "%extension.description%",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "publisher": "t1gr3ju4nmx",
   "icon": "images/icon.png",
   "license": "MIT",
