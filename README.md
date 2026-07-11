@@ -1,10 +1,19 @@
 # .NET Convenience
 
+## ☕ Support the project / Apoya el proyecto
+
+.NET Convenience is an independent side project. If it helped you, a **$1 USD** coffee goes a long way — and, honestly, it also helps with a few personal goals (like my mortgage 😁).
+
+👉 [Buy me a coffee (PayPal)](https://paypal.me/SIPTecMX)
+
+⭐ A review on the Marketplace or a star on GitHub also makes a big difference.
+
+---
+
 Extension for **Visual Studio Code** and **Cursor** that adds shortcuts for common **.NET** workflows (complements C# Dev Kit and the SDK).
 
+By [Johnny Sánchez / CreateIT](https://www.createit.com.mx) · [JohnnyC-SH](https://github.com/JohnnyC-SH)  
 Repository: [github.com/JohnnyC-SH/DotNet_convenience](https://github.com/JohnnyC-SH/DotNet_convenience)
-
-**Donate (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
 UI strings follow your editor language: **English** by default, **Spanish** when the display language is `es` (see `package.nls.*` and `l10n/bundle.l10n.*`).
 
@@ -76,9 +85,13 @@ cursor --uninstall-extension local.dotnet-convenience
 - **Issues:** [bugs and ideas](https://github.com/JohnnyC-SH/DotNet_convenience/issues).
 - **Pull requests:** fork the repo, branch your change, and open a PR against `main` (or the repo default branch).
 
-### Donations
+### More projects by Johnny Sánchez
 
-Same link as above: [paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
+| Project | What it is |
+|---|---|
+| [JohnnyMsgBox](https://github.com/JohnnyC-SH/JohnnyMsgBox) | MessageBox / dialogs / toasts for Blazor & HTML |
+| [JohnnyIconMaker](https://github.com/JohnnyC-SH/JohnnyIconMaker) | App icon packing (Windows, macOS, mobile) |
+| [create.it](https://www.createit.com.mx) | CreateIT website & brand |
 
 ### License
 
@@ -90,11 +103,10 @@ MIT — see `LICENSE` in this folder.
 
 Extensión para **Visual Studio Code** y **Cursor** que añade atajos para flujos habituales de **.NET** (complementa C# Dev Kit y el SDK).
 
+Por [Johnny Sánchez / CreateIT](https://www.createit.com.mx) · [JohnnyC-SH](https://github.com/JohnnyC-SH)  
 Repositorio: [github.com/JohnnyC-SH/DotNet_convenience](https://github.com/JohnnyC-SH/DotNet_convenience)
 
-**Donar (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
-
-*(En instalaciones por `.vsix`, Cursor/VS Code a veces **no muestra** el botón “Sponsor” del `package.json`; el enlace de arriba es el que siempre funciona.)*
+*(En instalaciones por `.vsix`, Cursor/VS Code a veces **no muestra** el botón “Sponsor” del `package.json`; el enlace de PayPal del inicio es el que siempre funciona.)*
 
 Los textos de la interfaz respetan el idioma del editor: **inglés** por defecto y **español** con idioma de visualización `es`.
 
@@ -162,9 +174,13 @@ cursor --uninstall-extension local.dotnet-convenience
 - **Issues:** [problemas y ideas](https://github.com/JohnnyC-SH/DotNet_convenience/issues).
 - **Pull requests:** bifurca el repo, crea una rama con tu cambio y abre un PR contra `main` (o la rama por defecto del repo).
 
-### Donaciones
+### Más proyectos de Johnny Sánchez
 
-Mismo enlace que arriba: [paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
+| Proyecto | Qué es |
+|---|---|
+| [JohnnyMsgBox](https://github.com/JohnnyC-SH/JohnnyMsgBox) | MessageBox / diálogos / toasts para Blazor y HTML |
+| [JohnnyIconMaker](https://github.com/JohnnyC-SH/JohnnyIconMaker) | Generación / empaquetado de iconos (Win, Mac, móvil) |
+| [create.it](https://www.createit.com.mx) | Sitio y marca CreateIT |
 
 ### Licencia
 
