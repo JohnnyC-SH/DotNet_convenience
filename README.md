@@ -2,7 +2,7 @@
 
 Extension for **Visual Studio Code** and **Cursor** that adds shortcuts for common **.NET** workflows (complements C# Dev Kit and the SDK).
 
-Repository: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
+Repository: [github.com/JohnnyC-SH/DotNet_convenience](https://github.com/JohnnyC-SH/DotNet_convenience)
 
 **Donate (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
@@ -44,7 +44,7 @@ There are also entries in the file explorer **context menu** (folders and `.cs` 
 ### Development
 
 ```bash
-git clone https://github.com/t1gr3ju4nmx/DotNet_convenience.git
+git clone https://github.com/JohnnyC-SH/DotNet_convenience.git
 cd DotNet_convenience
 npm install
 npm run compile
@@ -73,7 +73,7 @@ cursor --uninstall-extension local.dotnet-convenience
 
 ### Contributing
 
-- **Issues:** [bugs and ideas](https://github.com/t1gr3ju4nmx/DotNet_convenience/issues).
+- **Issues:** [bugs and ideas](https://github.com/JohnnyC-SH/DotNet_convenience/issues).
 - **Pull requests:** fork the repo, branch your change, and open a PR against `main` (or the repo default branch).
 
 ### Donations
@@ -90,7 +90,7 @@ MIT — see `LICENSE` in this folder.
 
 Extensión para **Visual Studio Code** y **Cursor** que añade atajos para flujos habituales de **.NET** (complementa C# Dev Kit y el SDK).
 
-Repositorio: [github.com/t1gr3ju4nmx/DotNet_convenience](https://github.com/t1gr3ju4nmx/DotNet_convenience)
+Repositorio: [github.com/JohnnyC-SH/DotNet_convenience](https://github.com/JohnnyC-SH/DotNet_convenience)
 
 **Donar (PayPal — SIPTecMX):** [https://paypal.me/SIPTecMX](https://paypal.me/SIPTecMX)
 
@@ -130,7 +130,7 @@ También hay entradas en el **menú contextual** del explorador de archivos (car
 ### Desarrollo
 
 ```bash
-git clone https://github.com/t1gr3ju4nmx/DotNet_convenience.git
+git clone https://github.com/JohnnyC-SH/DotNet_convenience.git
 cd DotNet_convenience
 npm install
 npm run compile
@@ -159,7 +159,7 @@ cursor --uninstall-extension local.dotnet-convenience
 
 ### Colaboración
 
-- **Issues:** [problemas y ideas](https://github.com/t1gr3ju4nmx/DotNet_convenience/issues).
+- **Issues:** [problemas y ideas](https://github.com/JohnnyC-SH/DotNet_convenience/issues).
 - **Pull requests:** bifurca el repo, crea una rama con tu cambio y abre un PR contra `main` (o la rama por defecto del repo).
 
 ### Donaciones

@@ -10,23 +10,34 @@
     "url": "https://paypal.me/SIPTecMX"
   },
   "author": {
-    "name": "t1gr3ju4nmx",
-    "url": "https://github.com/t1gr3ju4nmx"
+    "name": "JohnnyC-SH",
+    "url": "https://github.com/JohnnyC-SH"
   },
-  "homepage": "https://github.com/t1gr3ju4nmx/DotNet_convenience#readme",
+  "homepage": "https://github.com/JohnnyC-SH/DotNet_convenience#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/t1gr3ju4nmx/DotNet_convenience.git"
+    "url": "https://github.com/JohnnyC-SH/DotNet_convenience.git"
   },
   "bugs": {
-    "url": "https://github.com/t1gr3ju4nmx/DotNet_convenience/issues"
+    "url": "https://github.com/JohnnyC-SH/DotNet_convenience/issues"
   },
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Other"],
-  "keywords": ["dotnet", "csharp", "blazor", "aspnet", "maui", "controller"],
-  "activationEvents": ["onStartupFinished"],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "dotnet",
+    "csharp",
+    "blazor",
+    "aspnet",
+    "maui",
+    "controller"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "l10n": "./l10n",
   "main": "./out/extension.js",
   "contributes": {
